@@ -8,6 +8,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Preload critical images -->
+    <link rel="preload" href="images/portrait/portrait_01.webp" as="image">
+    <link rel="preload" href="images/portrait/portrait_02.webp" as="image">
+    <link rel="preload" href="images/portrait/portrait_03.webp" as="image">
+    <link rel="preload" href="images/portrait/portrait_04.webp" as="image">
+    <link rel="preload" href="images/portrait/portrait_05.webp" as="image">
+    <link rel="preload" href="images/portrait/portrait_06.webp" as="image">
+    <link rel="preload" href="images/portrait/portrait_07.webp" as="image">
+    <link rel="preload" href="images/portrait/portrait_08.webp" as="image">
 </head>
 <body>
     <!-- Global Particle Background -->
@@ -35,26 +44,47 @@
     </header><main class="category-page"><section class="category-hero"><div class="slideshow-container">
                 <div class="slideshow-overlay"></div>
                 <div class="slideshow-slide active">
-                    <img src="images/portrait/portrait_01.png" alt="エレガントなポートレート">
+                    <picture>
+                        <source srcset="images/portrait/portrait_01.webp" type="image/webp">
+                        <img src="images/portrait/portrait_01.png" alt="エレガントなポートレート" loading="lazy">
+                    </picture>
+                </div>
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/portrait/portrait_02.webp" type="image/webp">
+                        <img src="images/portrait/portrait_02.png" alt="アーバンスタイル" loading="lazy">
+                    </picture>
+                </div>
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/portrait/portrait_03.webp" type="image/webp">
+                        <img src="images/portrait/portrait_03.png" alt="ナチュラルライト" loading="lazy">
+                    </picture>
+                </div>
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/portrait/portrait_04.webp" type="image/webp">
+                        <img src="images/portrait/portrait_04.png" alt="ムーディーライト" loading="lazy">
+                    </picture>
+                </div>
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/portrait/portrait_05.webp" type="image/webp">
+                        <img src="images/portrait/portrait_05.png" alt="シネマティック" loading="lazy">
+                    </picture>
 </div>
                 <div class="slideshow-slide">
-                    <img src="images/portrait/portrait_02.png" alt="アーバンスタイル">
-</div>
+                    <picture>
+                        <source srcset="images/portrait/portrait_06.webp" type="image/webp">
+                        <img src="images/portrait/portrait_06.png" alt="ビジネスポートレート" loading="lazy">
+                    </picture>
+                </div>
                 <div class="slideshow-slide">
-                    <img src="images/portrait/portrait_03.png" alt="ナチュラルライト">
-</div>
-                <div class="slideshow-slide">
-                    <img src="images/portrait/portrait_04.png" alt="ムーディーライト">
-</div>
-                <div class="slideshow-slide">
-                    <img src="images/portrait/portrait_02.png" alt="シネマティック">
-</div>
-                <div class="slideshow-slide">
-                    <img src="images/portrait/portrait_03.png" alt="ビジネスポートレート">
-</div>
-                <div class="slideshow-slide">
-                    <img src="images/portrait/portrait_01.png" alt="ネオンライト">
-</div>
+                    <picture>
+                        <source srcset="images/portrait/portrait_07.webp" type="image/webp">
+                        <img src="images/portrait/portrait_07.png" alt="ネオンライト" loading="lazy">
+                    </picture>
+                </div>
             </div>
             <div class="container">
                 <h1 class="category-title">人物</h1>
@@ -63,42 +93,66 @@
         </section><section class="category-gallery"><div class="container">
                 <div class="gallery-masonry-grid">
                     <div class="gallery-masonry-item">
-                        <img src="images/portrait/portrait_01.png" alt="エレガントなポートレート"><div class="gallery-masonry-overlay">
+                        <picture>
+                            <source srcset="images/portrait/portrait_01.webp" type="image/webp">
+                            <img src="images/portrait/portrait_01.png" alt="エレガントなポートレート" loading="lazy">
+                        </picture>
+                        <div class="gallery-masonry-overlay">
                             <h3>Elegant Portrait</h3>
                             <p>エレガントなライティング</p>
                         </div>
                     </div>
                     
                     <div class="gallery-masonry-item">
-                        <img src="images/portrait/portrait_02.png" alt="アーバンスタイル"><div class="gallery-masonry-overlay">
+                        <picture>
+                            <source srcset="images/portrait/portrait_02.webp" type="image/webp">
+                            <img src="images/portrait/portrait_02.png" alt="アーバンスタイル" loading="lazy">
+                        </picture>
+                        <div class="gallery-masonry-overlay">
                             <h3>Urban Style</h3>
                             <p>アーバンテイスト</p>
                         </div>
                     </div>
                     
                     <div class="gallery-masonry-item">
-                        <img src="images/portrait/portrait_03.png" alt="ナチュラルライト"><div class="gallery-masonry-overlay">
+                        <picture>
+                            <source srcset="images/portrait/portrait_03.webp" type="image/webp">
+                            <img src="images/portrait/portrait_03.png" alt="ナチュラルライト" loading="lazy">
+                        </picture>
+                        <div class="gallery-masonry-overlay">
                             <h3>Natural Light</h3>
                             <p>自然光ポートレート</p>
                         </div>
                     </div>
                     
                     <div class="gallery-masonry-item">
-                        <img src="images/portrait/portrait_04.png" alt="ムーディーライト"><div class="gallery-masonry-overlay">
+                        <picture>
+                            <source srcset="images/portrait/portrait_04.webp" type="image/webp">
+                            <img src="images/portrait/portrait_04.png" alt="ムーディーライト" loading="lazy">
+                        </picture>
+                        <div class="gallery-masonry-overlay">
                             <h3>Moody Light</h3>
                             <p>アーティスティックな表現</p>
                         </div>
                     </div>
                     
                     <div class="gallery-masonry-item">
-                        <img src="images/portrait/portrait_05.png" alt="シネマティック"><div class="gallery-masonry-overlay">
+                        <picture>
+                            <source srcset="images/portrait/portrait_05.webp" type="image/webp">
+                            <img src="images/portrait/portrait_05.png" alt="シネマティック" loading="lazy">
+                        </picture>
+                        <div class="gallery-masonry-overlay">
                             <h3>Cinematic</h3>
                             <p>映画的なライティング</p>
                         </div>
                     </div>
                     
                     <div class="gallery-masonry-item">
-                        <img src="images/portrait/portrait_06.png" alt="ビジネスポートレート"><div class="gallery-masonry-overlay">
+                        <picture>
+                            <source srcset="images/portrait/portrait_06.webp" type="image/webp">
+                            <img src="images/portrait/portrait_06.png" alt="ビジネスポートレート" loading="lazy">
+                        </picture>
+                        <div class="gallery-masonry-overlay">
                             <h3>Business Portrait</h3>
                             <p>プロフェッショナル</p>
                         </div>

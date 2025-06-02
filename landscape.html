@@ -8,6 +8,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Preload critical images -->
+    <link rel="preload" href="images/landscape/landscape_01.webp" as="image">
+    <link rel="preload" href="images/landscape/landscape_02.webp" as="image">
+    <link rel="preload" href="images/landscape/landscape_03.webp" as="image">
+    <link rel="preload" href="images/landscape/landscape_04.webp" as="image">
+    <link rel="preload" href="images/landscape/landscape_05.webp" as="image">
+    <link rel="preload" href="images/landscape/landscape_06.webp" as="image">
+    <link rel="preload" href="images/landscape/landscape_07.webp" as="image">
+    <link rel="preload" href="images/landscape/landscape_08.webp" as="image">
 </head>
 <body>
     <!-- Global Particle Background -->
@@ -35,28 +44,52 @@
     </header><main class="category-page"><section class="category-hero"><div class="slideshow-container">
                 <div class="slideshow-overlay"></div>
                 <div class="slideshow-slide active">
-                    <img src="images/landscape/landscape_01.png" alt="風景1">
+                    <picture>
+                        <source srcset="images/landscape/landscape_01.webp" type="image/webp">
+                        <img src="images/landscape/landscape_01.png" alt="風景1" loading="lazy">
+                    </picture>
+                </div>
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/landscape/landscape_02.webp" type="image/webp">
+                        <img src="images/landscape/landscape_02.png" alt="風景2" loading="lazy">
+                    </picture>
+                </div>
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/landscape/landscape_03.webp" type="image/webp">
+                        <img src="images/landscape/landscape_03.png" alt="風景3" loading="lazy">
+                    </picture>
+                </div>
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/landscape/landscape_04.webp" type="image/webp">
+                        <img src="images/landscape/landscape_04.png" alt="風景4" loading="lazy">
+                    </picture>
+                </div>
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/landscape/landscape_05.webp" type="image/webp">
+                        <img src="images/landscape/landscape_05.png" alt="風景5" loading="lazy">
+                    </picture>
 </div>
                 <div class="slideshow-slide">
-                    <img src="images/landscape/landscape_02.png" alt="風景2">
-</div>
+                    <picture>
+                        <source srcset="images/landscape/landscape_06.webp" type="image/webp">
+                        <img src="images/landscape/landscape_06.png" alt="風景6" loading="lazy">
+                    </picture>
+                </div>
                 <div class="slideshow-slide">
-                    <img src="images/landscape/landscape_03.png" alt="風景3">
-</div>
+                    <picture>
+                        <source srcset="images/landscape/landscape_07.webp" type="image/webp">
+                        <img src="images/landscape/landscape_07.png" alt="風景7" loading="lazy">
+                    </picture>
+                </div>
                 <div class="slideshow-slide">
-                    <img src="images/landscape/landscape_04.png" alt="風景4">
-</div>
-                <div class="slideshow-slide">
-                    <img src="images/landscape/landscape_05.png" alt="風景5">
-</div>
-                <div class="slideshow-slide">
-                    <img src="images/landscape/landscape_06.png" alt="風景6">
-</div>
-                <div class="slideshow-slide">
-                    <img src="images/landscape/landscape_07.png" alt="風景7">
-</div>
-                <div class="slideshow-slide">
-                    <img src="images/landscape/landscape_08.png" alt="風景8">
+                    <picture>
+                        <source srcset="images/landscape/landscape_08.webp" type="image/webp">
+                        <img src="images/landscape/landscape_08.png" alt="風景8" loading="lazy">
+                    </picture>
 </div>
             </div>
             <div class="container">
@@ -66,7 +99,10 @@
         </section><section class="category-gallery"><div class="container">
                 <div class="gallery-masonry-grid">
                     <div class="gallery-masonry-item">
-                        <img src="images/landscape/landscape_01.png" alt="風景1">
+                        <picture>
+                            <source srcset="images/landscape/landscape_01.webp" type="image/webp">
+                            <img src="images/landscape/landscape_01.png" alt="風景1" loading="lazy">
+                        </picture>
                         <div class="gallery-masonry-overlay">
                             <h3>風景1</h3>
                             <p>美しい自然の風景</p>
@@ -74,7 +110,10 @@
                     </div>
 
                     <div class="gallery-masonry-item">
-                        <img src="images/landscape/landscape_02.png" alt="風景2">
+                        <picture>
+                            <source srcset="images/landscape/landscape_02.webp" type="image/webp">
+                            <img src="images/landscape/landscape_02.png" alt="風景2" loading="lazy">
+                        </picture>
                         <div class="gallery-masonry-overlay">
                             <h3>風景2</h3>
                             <p>美しい自然の風景</p>
@@ -82,7 +121,10 @@
                     </div>
 
                     <div class="gallery-masonry-item">
-                        <img src="images/landscape/landscape_03.png" alt="風景3">
+                        <picture>
+                            <source srcset="images/landscape/landscape_03.webp" type="image/webp">
+                            <img src="images/landscape/landscape_03.png" alt="風景3" loading="lazy">
+                        </picture>
                         <div class="gallery-masonry-overlay">
                             <h3>風景3</h3>
                             <p>美しい自然の風景</p>
@@ -90,7 +132,10 @@
                     </div>
 
                     <div class="gallery-masonry-item">
-                        <img src="images/landscape/landscape_04.png" alt="風景4">
+                        <picture>
+                            <source srcset="images/landscape/landscape_04.webp" type="image/webp">
+                            <img src="images/landscape/landscape_04.png" alt="風景4" loading="lazy">
+                        </picture>
                         <div class="gallery-masonry-overlay">
                             <h3>風景4</h3>
                             <p>美しい自然の風景</p>
@@ -98,7 +143,10 @@
                     </div>
 
                     <div class="gallery-masonry-item">
-                        <img src="images/landscape/landscape_05.png" alt="風景5">
+                        <picture>
+                            <source srcset="images/landscape/landscape_05.webp" type="image/webp">
+                            <img src="images/landscape/landscape_05.png" alt="風景5" loading="lazy">
+                        </picture>
                         <div class="gallery-masonry-overlay">
                             <h3>風景5</h3>
                             <p>美しい自然の風景</p>
@@ -106,7 +154,10 @@
                     </div>
 
                     <div class="gallery-masonry-item">
-                        <img src="images/landscape/landscape_06.png" alt="風景6">
+                        <picture>
+                            <source srcset="images/landscape/landscape_06.webp" type="image/webp">
+                            <img src="images/landscape/landscape_06.png" alt="風景6" loading="lazy">
+                        </picture>
                         <div class="gallery-masonry-overlay">
                             <h3>風景6</h3>
                             <p>美しい自然の風景</p>

@@ -1,13 +1,38 @@
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AIで生成されたファンタジー作品のギャラリー">
 <title>ファンタジー - AI GALLERY</title>
-<link rel="stylesheet" href="css/style.css">
+
+<!-- Preload critical resources -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap"></noscript>
+
+<!-- Inline critical CSS -->
+<style>
+    /* Critical CSS for above-the-fold content */
+    body { margin: 0; font-family: 'Rajdhani', sans-serif; overflow-x: hidden; }
+    .matrix-transition { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 9999; display: flex; justify-content: center; align-items: center; }
+    .matrix-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    .matrix-content { color: #0f0; font-family: 'Courier New', monospace; font-size: 1.5rem; z-index: 2; text-align: center; }
+    .main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; padding: 1rem 0; transition: all 0.3s ease; }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+    .logo { font-size: 1.8rem; font-weight: 700; color: #fff; }
+    .logo span { color: #4a90e2; }
+</style>
+
+<!-- Defer non-critical CSS -->
+<link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+
+<!-- Preload critical images -->
+<link rel="preload" href="images/fantasy/fantasy_01.webp" as="image">
+<link rel="preload" href="images/fantasy/fantasy_02.webp" as="image">
+<link rel="preload" href="images/fantasy/fantasy_03.webp" as="image">
 </head>
 <body>
     <!-- Global Particle Background -->
@@ -35,35 +60,65 @@
     </header><main class="category-page"><section class="category-hero"><div class="slideshow-container">
                 <div class="slideshow-overlay"></div>
                 <div class="slideshow-slide active">
-                    <img src="images/fantasy/fantasy_01.png" alt="ファンタジー1">
-</div>
+                    <picture>
+                        <source srcset="images/fantasy/fantasy_01.webp" type="image/webp">
+                        <img src="images/fantasy/fantasy_01.png" alt="ファンタジー1" loading="lazy">
+                    </picture>
+                </div>
                 <div class="slideshow-slide">
-                    <img src="images/fantasy/fantasy_02.png" alt="ファンタジー2">
-</div>
+                    <picture>
+                        <source srcset="images/fantasy/fantasy_02.webp" type="image/webp">
+                        <img src="images/fantasy/fantasy_02.png" alt="ファンタジー2" loading="lazy">
+                    </picture>
+                </div>
                 <div class="slideshow-slide">
-                    <img src="images/fantasy/fantasy_03.png" alt="ファンタジー3">
-</div>
+                    <picture>
+                        <source srcset="images/fantasy/fantasy_03.webp" type="image/webp">
+                        <img src="images/fantasy/fantasy_03.png" alt="ファンタジー3" loading="lazy">
+                    </picture>
+                </div>
                 <div class="slideshow-slide">
-                    <img src="images/fantasy/fantasy_04.png" alt="ファンタジー4">
-</div>
+                    <picture>
+                        <source srcset="images/fantasy/fantasy_04.webp" type="image/webp">
+                        <img src="images/fantasy/fantasy_04.png" alt="ファンタジー4" loading="lazy">
+                    </picture>
+                </div>
                 <div class="slideshow-slide">
-                    <img src="images/fantasy/fantasy_05.png" alt="ファンタジー5">
-</div>
+                    <picture>
+                        <source srcset="images/fantasy/fantasy_05.webp" type="image/webp">
+                        <img src="images/fantasy/fantasy_05.png" alt="ファンタジー5" loading="lazy">
+                    </picture>
+                </div>
                 <div class="slideshow-slide">
-                    <img src="images/fantasy/fantasy_06.png" alt="ファンタジー6">
-</div>
+                    <picture>
+                        <source srcset="images/fantasy/fantasy_06.webp" type="image/webp">
+                        <img src="images/fantasy/fantasy_06.png" alt="ファンタジー6" loading="lazy">
+                    </picture>
+                </div>
                 <div class="slideshow-slide">
-                    <img src="images/fantasy/fantasy_07.png" alt="ファンタジー7">
-</div>
+                    <picture>
+                        <source srcset="images/fantasy/fantasy_07.webp" type="image/webp">
+                        <img src="images/fantasy/fantasy_07.png" alt="ファンタジー7" loading="lazy">
+                    </picture>
+                </div>
                 <div class="slideshow-slide">
-                    <img src="images/fantasy/fantasy_08.png" alt="ファンタジー8">
-</div>
+                    <picture>
+                        <source srcset="images/fantasy/fantasy_08.webp" type="image/webp">
+                        <img src="images/fantasy/fantasy_08.png" alt="ファンタジー8" loading="lazy">
+                    </picture>
+                </div>
                 <div class="slideshow-slide">
-                    <img src="images/fantasy/fantasy_09.png" alt="ファンタジー9">
-</div>
+                    <picture>
+                        <source srcset="images/fantasy/fantasy_09.webp" type="image/webp">
+                        <img src="images/fantasy/fantasy_09.png" alt="ファンタジー9" loading="lazy">
+                    </picture>
+                </div>
                 <div class="slideshow-slide">
-                    <img src="images/fantasy/fantasy_10.png" alt="ファンタジー10">
-</div>
+                    <picture>
+                        <source srcset="images/fantasy/fantasy_10.webp" type="image/webp">
+                        <img src="images/fantasy/fantasy_10.png" alt="ファンタジー10" loading="lazy">
+                    </picture>
+                </div>
             </div>
             <div class="container">
                 <h1 class="category-title">ファンタジー</h1>
@@ -72,7 +127,10 @@
         </section><section class="category-gallery"><div class="container">
                 <div class="gallery-masonry-grid">
                     <div class="gallery-masonry-item">
-                        <img src="images/fantasy/fantasy_01.png" alt="ファンタジー1">
+                        <picture>
+                            <source srcset="images/fantasy/fantasy_01.webp" type="image/webp">
+                            <img src="images/fantasy/fantasy_01.png" alt="ファンタジー1" loading="lazy">
+                        </picture>
                         <div class="gallery-masonry-overlay">
                             <h3>ファンタジー1</h3>
                             <p>幻想的な世界観</p>
@@ -80,7 +138,10 @@
                     </div>
 
                     <div class="gallery-masonry-item">
-                        <img src="images/fantasy/fantasy_02.png" alt="ファンタジー2">
+                        <picture>
+                            <source srcset="images/fantasy/fantasy_02.webp" type="image/webp">
+                            <img src="images/fantasy/fantasy_02.png" alt="ファンタジー2" loading="lazy">
+                        </picture>
                         <div class="gallery-masonry-overlay">
                             <h3>ファンタジー2</h3>
                             <p>幻想的な世界観</p>
@@ -88,7 +149,10 @@
                     </div>
 
                     <div class="gallery-masonry-item">
-                        <img src="images/fantasy/fantasy_03.png" alt="ファンタジー3">
+                        <picture>
+                            <source srcset="images/fantasy/fantasy_03.webp" type="image/webp">
+                            <img src="images/fantasy/fantasy_03.png" alt="ファンタジー3" loading="lazy">
+                        </picture>
                         <div class="gallery-masonry-overlay">
                             <h3>ファンタジー3</h3>
                             <p>幻想的な世界観</p>
@@ -96,7 +160,10 @@
                     </div>
 
                     <div class="gallery-masonry-item">
-                        <img src="images/fantasy/fantasy_04.png" alt="ファンタジー4">
+                        <picture>
+                            <source srcset="images/fantasy/fantasy_04.webp" type="image/webp">
+                            <img src="images/fantasy/fantasy_04.png" alt="ファンタジー4" loading="lazy">
+                        </picture>
                         <div class="gallery-masonry-overlay">
                             <h3>ファンタジー4</h3>
                             <p>幻想的な世界観</p>
@@ -134,7 +201,6 @@
                             <p>幻想的な世界観</p>
                         </div>
                     </div>
-
                     <div class="gallery-masonry-item">
                         <img src="images/fantasy/fantasy_09.png" alt="ファンタジー9">
                         <div class="gallery-masonry-overlay">

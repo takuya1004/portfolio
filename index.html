@@ -4,11 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI GALLERY - Futuristic AI Generated Art</title>
-    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap"></noscript>
+    
+    <!-- Preload critical images -->
+    <link rel="preload" href="images/top/top_01.webp" as="image">
+    <link rel="preload" href="images/top/top_02.webp" as="image">
+    <link rel="preload" href="images/top/top_03.webp" as="image">
+    <link rel="preload" href="images/top/top_09.webp" as="image">
+    
+    <!-- Inline critical CSS -->
+    <style>
+        /* Critical CSS for above-the-fold content */
+        body { margin: 0; font-family: 'Rajdhani', sans-serif; overflow-x: hidden; }
+        .loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; justify-content: center; align-items: center; z-index: 9999; }
+        .loading-container { text-align: center; }
+        .loading-logo { font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; }
+        .logo-ai { color: #4a90e2; }
+        .logo-gallery { color: #fff; }
+        .loading-bar { width: 200px; height: 4px; background: #333; margin: 0 auto; overflow: hidden; }
+        .progress-fill { height: 100%; width: 0; background: #4a90e2; transition: width 0.3s ease; }
+        .loading-percentage { margin-top: 1rem; color: #fff; font-size: 0.9rem; }
+    </style>
+    
+    <!-- Defer non-critical CSS -->
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 </head>
 <body>
     <!-- Matrix Transition Effect -->
@@ -68,50 +93,95 @@
         <!-- Hero Section -->
         <section id="top" class="hero-section">
             <div class="hero-slideshow-background">
-                <div class="slide active">
-                    <img src="images/fantasy/fantasy_01.png" alt="Fantasy Art 1">
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/fantasy/fantasy_01.webp" type="image/webp">
+                        <img src="images/fantasy/fantasy_01.png" alt="Fantasy Art 1" loading="lazy">
+                    </picture>
                 </div>
-                <div class="slide">
-                    <img src="images/sf/sf_02.png" alt="Sci-Fi Art 1">
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/sf/sf_02.webp" type="image/webp">
+                        <img src="images/sf/sf_02.png" alt="Sci-Fi Art 1" loading="lazy">
+                    </picture>
                 </div>
-                <div class="slide">
-                    <img src="images/anime/anime_03.png" alt="Anime Art 1">
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/anime/anime_03.webp" type="image/webp">
+                        <img src="images/anime/anime_03.png" alt="Anime Art 1" loading="lazy">
+                    </picture>
                 </div>
-                <div class="slide">
-                    <img src="images/portrait/portrait_02.png" alt="Portrait Art 1">
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/portrait/portrait_02.webp" type="image/webp">
+                        <img src="images/portrait/portrait_02.png" alt="Portrait Art 1" loading="lazy">
+                    </picture>
                 </div>
-                <div class="slide">
-                    <img src="images/landscape/landscape_03.png" alt="Landscape Art 1">
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/landscape/landscape_03.webp" type="image/webp">
+                        <img src="images/landscape/landscape_03.png" alt="Landscape Art 1" loading="lazy">
+                    </picture>
                 </div>
-                <div class="slide">
-                    <img src="images/illustration/illustration_02.png" alt="Illustration Art 1">
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/illustration/illustration_02.webp" type="image/webp">
+                        <img src="images/illustration/illustration_02.png" alt="Illustration Art 1" loading="lazy">
+                    </picture>
                 </div>
-                <div class="slide">
-                    <img src="images/fantasy/fantasy_04.png" alt="Fantasy Art 2">
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/fantasy/fantasy_04.webp" type="image/webp">
+                        <img src="images/fantasy/fantasy_04.png" alt="Fantasy Art 2" loading="lazy">
+                    </picture>
                 </div>
-                <div class="slide">
-                    <img src="images/sf/sf_04.png" alt="Sci-Fi Art 2">
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/sf/sf_04.webp" type="image/webp">
+                        <img src="images/sf/sf_04.png" alt="Sci-Fi Art 2" loading="lazy">
+                    </picture>
                 </div>
-                <div class="slide">
-                    <img src="images/anime/anime_05.png" alt="Anime Art 2">
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/anime/anime_05.webp" type="image/webp">
+                        <img src="images/anime/anime_05.png" alt="Anime Art 2" loading="lazy">
+                    </picture>
                 </div>
-                <div class="slide">
-                    <img src="images/portrait/portrait_04.png" alt="Portrait Art 2">
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/portrait/portrait_04.webp" type="image/webp">
+                        <img src="images/portrait/portrait_04.png" alt="Portrait Art 2" loading="lazy">
+                    </picture>
                 </div>
-                <div class="slide">
-                    <img src="images/landscape/landscape_05.png" alt="Landscape Art 2">
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/landscape/landscape_05.webp" type="image/webp">
+                        <img src="images/landscape/landscape_05.png" alt="Landscape Art 2" loading="lazy">
+                    </picture>
                 </div>
-                <div class="slide">
-                    <img src="images/illustration/illustration_01.png" alt="Illustration Art 2">
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/illustration/illustration_01.webp" type="image/webp">
+                        <img src="images/illustration/illustration_01.png" alt="Illustration Art 2" loading="lazy">
+                    </picture>
                 </div>
-                <div class="slide">
-                    <img src="images/fantasy/fantasy_07.png" alt="Fantasy Art 3">
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/fantasy/fantasy_07.webp" type="image/webp">
+                        <img src="images/fantasy/fantasy_07.png" alt="Fantasy Art 3" loading="lazy">
+                    </picture>
                 </div>
-                <div class="slide">
-                    <img src="images/sf/sf_06.png" alt="Sci-Fi Art 3">
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/sf/sf_06.webp" type="image/webp">
+                        <img src="images/sf/sf_06.png" alt="Sci-Fi Art 3" loading="lazy">
+                    </picture>
                 </div>
-                <div class="slide">
-                    <img src="images/anime/anime_07.png" alt="Anime Art 3">
+                <div class="slideshow-slide">
+                    <picture>
+                        <source srcset="images/anime/anime_07.webp" type="image/webp">
+                        <img src="images/anime/anime_07.png" alt="Anime Art 3" loading="lazy">
+                    </picture>
                 </div>
                 <div class="hero-overlay"></div>
             </div>
@@ -121,7 +191,6 @@
                     <p class="hero-subtitle">AI生成による未来的なアート作品のポートフォリオ</p>
                 </div>
             </div>
-            <!-- スライドショーのバーを削除 -->
         </section>
 
         <!-- Profile Section -->
@@ -133,8 +202,14 @@
                 
                 <div class="profile-grid">
                     <div class="profile-image-container">
-                        <img src="images/top/top_03.png" alt="Profile Image" class="profile-image primary-image">
-                        <img src="images/top/top_01.png" alt="Alternative Profile Image" class="profile-image secondary-image">
+                        <picture>
+                            <source srcset="images/top/top_03.webp" type="image/webp">
+                            <img src="images/top/top_03.png" alt="Profile Image" class="profile-image primary-image" loading="lazy">
+                        </picture>
+                        <picture>
+                            <source srcset="images/top/top_01.webp" type="image/webp">
+                            <img src="images/top/top_01.png" alt="Alternative Profile Image" class="profile-image secondary-image" loading="lazy">
+                        </picture>
                         <div class="profile-image-glow"></div>
                     </div>
                     
@@ -628,8 +703,13 @@
             
             // Slideshow functionality
             function initSlideshow() {
-                const slides = document.querySelectorAll('.hero-slideshow-background .slide');
+                const slides = document.querySelectorAll('.hero-slideshow-background .slideshow-slide');
                 let currentSlide = 0;
+                
+                // Initialize first slide as active
+                if (slides.length > 0) {
+                    slides[0].classList.add('active');
+                }
                 
                 // Function to change slide
                 function changeSlide(index) {
@@ -750,11 +830,32 @@
                 });
             });
             
-            // Initialize all animations
+            // Initialize components
             createGlobalParticles();
             createCategoryParticles();
+            initGalleryModal();
             initSlideshow();
         });
     </script>
+
+    <!-- Lazysizes for lazy loading images -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
+    <script>
+        // Initialize lazysizes
+        document.addEventListener('DOMContentLoaded', function() {
+            if ('loading' in HTMLImageElement.prototype) {
+                // Native lazy loading is supported
+                const images = document.querySelectorAll('img[loading="lazy"]');
+                images.forEach(img => {
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                    }
+                });
+            }
+        });
+    </script>
+    
+    <!-- Main Script -->
+    <script src="js/script.js" defer></script>
 </body>
 </html>

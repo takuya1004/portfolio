@@ -9,6 +9,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Preload critical images -->
+    <link rel="preload" href="images/sf/sf_01.webp" as="image">
+    <link rel="preload" href="images/sf/sf_02.webp" as="image">
+    <link rel="preload" href="images/sf/sf_03.webp" as="image">
+    <link rel="preload" href="images/sf/sf_04.webp" as="image">
+    <link rel="preload" href="images/sf/sf_05.webp" as="image">
+    <link rel="preload" href="images/sf/sf_06.webp" as="image">
+    <link rel="preload" href="images/sf/sf_07.webp" as="image">
+    <link rel="preload" href="images/sf/sf_08.webp" as="image">
+    <link rel="preload" href="images/portrait/portrait_01.webp" as="image">
+    <link rel="preload" href="images/landscape/landscape_01.webp" as="image">
+    <link rel="preload" href="images/fantasy/fantasy_01.webp" as="image">
+    <link rel="preload" href="images/anime/anime_01.webp" as="image">
+    <link rel="preload" href="images/illustration/illustration_01.webp" as="image">
 </head>
 <body>
     <!-- Matrix Transition Effect -->
@@ -78,7 +92,10 @@
             <div class="container">
                 <div class="gallery-masonry-grid">
                     <div class="gallery-masonry-item">
-                        <img src="images/sf/sf_01.png" alt="SF1">
+                        <picture>
+                            <source srcset="images/sf/sf_01.webp" type="image/webp">
+                            <img src="images/sf/sf_01.png" alt="SF1" loading="lazy">
+                        </picture>
                         <div class="gallery-masonry-overlay">
                             <h3>SF1</h3>
                             <p>近未来の風景</p>
@@ -86,7 +103,10 @@
                     </div>
 
                     <div class="gallery-masonry-item">
-                        <img src="images/sf/sf_02.png" alt="SF2">
+                        <picture>
+                            <source srcset="images/sf/sf_02.webp" type="image/webp">
+                            <img src="images/sf/sf_02.png" alt="SF2" loading="lazy">
+                        </picture>
                         <div class="gallery-masonry-overlay">
                             <h3>SF2</h3>
                             <p>近未来の風景</p>
@@ -94,7 +114,10 @@
                     </div>
 
                     <div class="gallery-masonry-item">
-                        <img src="images/sf/sf_03.png" alt="SF3">
+                        <picture>
+                            <source srcset="images/sf/sf_03.webp" type="image/webp">
+                            <img src="images/sf/sf_03.png" alt="SF3" loading="lazy">
+                        </picture>
                         <div class="gallery-masonry-overlay">
                             <h3>SF3</h3>
                             <p>近未来の風景</p>
@@ -102,7 +125,10 @@
                     </div>
 
                     <div class="gallery-masonry-item">
-                        <img src="images/sf/sf_04.png" alt="SF4">
+                        <picture>
+                            <source srcset="images/sf/sf_04.webp" type="image/webp">
+                            <img src="images/sf/sf_04.png" alt="SF4" loading="lazy">
+                        </picture>
                         <div class="gallery-masonry-overlay">
                             <h3>SF4</h3>
                             <p>近未来の風景</p>
@@ -110,14 +136,20 @@
                     </div>
 
                     <div class="gallery-masonry-item">
-                        <img src="images/sf/sf_05.png" alt="SF5">
+                        <picture>
+                            <source srcset="images/sf/sf_05.webp" type="image/webp">
+                            <img src="images/sf/sf_05.png" alt="SF5" loading="lazy">
+                        </picture>
                         <div class="gallery-masonry-overlay">
                             <h3>SF5</h3>
                             <p>近未来の風景</p>
                         </div>
                     </div>
                     <div class="gallery-masonry-item">
-                        <img src="images/sf/sf_06.png" alt="SF6">
+                        <picture>
+                            <source srcset="images/sf/sf_06.webp" type="image/webp">
+                            <img src="images/sf/sf_06.png" alt="SF6" loading="lazy">
+                        </picture>
                         <div class="gallery-masonry-overlay">
                             <h3>SF6</h3>
                             <p>近未来の風景</p>
