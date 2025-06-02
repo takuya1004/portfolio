@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アニメ - AI GALLERY</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Global Particle Background -->
+    <div class="global-particles-container"></div>
+    
+    <!-- Matrix Transition Effect -->
+    <div class="matrix-transition">
+        <canvas id="matrix-canvas" class="matrix-canvas"></canvas>
+        <div class="matrix-content">LOADING ANIME DATA...</div>
+    </div>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">AI<span>GALLERY</span></div>
+            <nav class="main-nav">
+                <ul>
+                    <li class="nav-item"><a href="index.html" data-transition="true">TOP</a></li>
+                    <li class="nav-item"><a href="index.html#about" data-transition="true">ABOUT</a></li>
+                    <li class="nav-item"><a href="index.html#category" data-transition="true">CATEGORY</a></li>
+                    <li class="nav-item"><a href="index.html#contact" data-transition="true">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="category-page">
+        <section class="category-hero">
+            <div class="slideshow-container">
+                <div class="slideshow-overlay"></div>
+                <div class="slideshow-slide active">
+                    <img src="images/anime/anime_04.png" alt="Colorful Anime Background">
+                </div>
+                <div class="slideshow-slide">
+                    <img src="images/top/aiijkek9kh.png" alt="Abstract Anime Art">
+                </div>
+                <div class="slideshow-slide">
+                    <img src="images/anime/anime_06.png" alt="Anime Style Character">
+                </div>
+                <div class="slideshow-slide">
+                    <img src="images/anime/anime_02.png" alt="Kawaii Art">
+                </div>
+                <div class="slideshow-slide">
+                    <img src="images/anime/anime_08.png" alt="Fantasy Anime">
+                </div>
+                <div class="slideshow-slide">
+                    <img src="images/anime/anime_05.png" alt="Anime Scene">
+                </div>
+            </div>
+            <div class="container">
+                <h1 class="category-title">アニメ</h1>
+                <p class="category-description">AI技術で生成された日本のアニメスタイルのアート</p>
+            </div>
+        </section>
+
+        <section class="category-gallery">
+            <div class="container">
+                <div class="gallery-masonry-grid">
+                    <div class="gallery-masonry-item">
+                        <img src="images/anime/anime_01.png" alt="Anime Character">
+                        <div class="gallery-masonry-overlay">
+                            <h3>Blue Girl</h3>
+                            <p>青い少女</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-masonry-item">
+                        <img src="images/anime/anime_02.png" alt="Fantasy Character">
+                        <div class="gallery-masonry-overlay">
+                            <h3>Cyber Idol</h3>
+                            <p>サイバーアイドル</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-masonry-item">
+                        <img src="images/anime/anime_06.png" alt="Anime Scene">
+                        <div class="gallery-masonry-overlay">
+                            <h3>Robot Girl</h3>
+                            <p>ロボット少女</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-masonry-item">
+                        <img src="images/anime/anime_08.png" alt="Anime Character">
+                        <div class="gallery-masonry-overlay">
+                            <h3>Pastel Dream</h3>
+                            <p>パステルドリーム</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-masonry-item">
+                        <img src="images/anime/anime_05.png" alt="Kawaii Art">
+                        <div class="gallery-masonry-overlay">
+                            <h3>School Girl</h3>
+                            <p>女子高生</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-masonry-item">
+                        <img src="images/top/kp82fei4w3.png" alt="Anime Landscape">
+                        <div class="gallery-masonry-overlay">
+                            <h3>Futuristic Girl</h3>
+                            <p>未来の少女</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-masonry-item">
+                        <img src="images/anime/anime_03.png" alt="Action Character">
+                        <div class="gallery-masonry-overlay">
+                            <h3>Purple Haze</h3>
+                            <p>パープルヘイズ</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-masonry-item">
+                        <img src="images/anime/anime_04.png" alt="Cute Character">
+                        <div class="gallery-masonry-overlay">
+                            <h3>Space Traveler</h3>
+                            <p>宇宙の旅人</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-actions">
+                    <div class="back-button-container">
+                        <a href="index.html#category" class="back-button" data-transition="true">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>カテゴリーに戻る</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">CONTACT</h2>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-form-wrapper">
+                        <form class="contact-form">
+                            <div class="input-group">
+                                <label for="name">NAME</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="email">EMAIL</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="subject">SUBJECT</label>
+                                <input type="text" id="subject" required>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="message">MESSAGE</label>
+                                <textarea id="message" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-button">SEND</button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-info-wrapper">
+                        <div class="contact-info">
+                            <h3>GET IN TOUCH</h3>
+                            <p>AI生成映像に関するご質問や制作依頼など、お気軽にお問い合わせください。</p>
+                            
+                            <div class="contact-methods">
+                                <div class="contact-method">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <span>EMAIL</span>
+                                        <span>info@aigallery.com</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-method">
+                                    <i class="fas fa-phone"></i>
+                                    <div>
+                                        <span>PHONE</span>
+                                        <span>03-1234-5678</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-method">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <span>LOCATION</span>
+                                        <span>東京都渋谷区</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-logo">AI<span>GALLERY</span></div>
+            
+            <div class="footer-links">
+                <a href="index.html">TOP</a>
+                <a href="index.html#about">ABOUT</a>
+                <a href="index.html#category">CATEGORY</a>
+                <a href="index.html#contact">CONTACT</a>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI GALLERY. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // マトリックスアニメーション開始
+            const matrixTransition = document.querySelector('.matrix-transition');
+            const matrixCanvas = document.getElementById('matrix-canvas');
+            const ctx = matrixCanvas.getContext('2d');
+            const matrixContent = document.querySelector('.matrix-content');
+
+            // キャンバスサイズを設定
+            matrixCanvas.width = window.innerWidth;
+            matrixCanvas.height = window.innerHeight;
+
+            // マトリックス効果を表示
+            matrixTransition.classList.add('active');
+
+            // マトリックス文字（アルファベットと数字、記号の組み合わせ）
+            const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const nums = '0123456789';
+            const symbols = '!@#$%^&*()_+-=[]{}|;:,./<>?';
+            const alphabet = latin + nums + symbols;
+            
+            const fontSize = 16;
+            const columns = matrixCanvas.width / fontSize;
+            
+            // 各列の開始位置（y座標）を保持する配列
+            const drops = [];
+            for (let i = 0; i < columns; i++) {
+                drops[i] = 1;
+            }
+
+            // マトリックス効果を描画する関数
+            function drawMatrix() {
+                // 透明な黒の背景で少しずつ前のフレームを消す（残像効果）
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+                
+                // 文字の色を設定 - アニメ風のピンク色に変更
+                ctx.fillStyle = '#ff69b4';
+                ctx.font = `${fontSize}px monospace`;
+                
+                // 各列について文字を描画
+                for (let i = 0; i < drops.length; i++) {
+                    // ランダムな文字を選択
+                    const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                    
+                    // 文字を描画
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    
+                    // 一定の確率で先頭を消去し、新しい列を開始
+                    if (drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    
+                    // 文字を下に移動
+                    drops[i]++;
+                }
+            }
+
+            // 最初にマトリックス効果を表示してから通常の遷移に移行
+            let matrixInterval = setInterval(drawMatrix, 50);
+            
+            // コンテンツを表示
+            setTimeout(() => {
+                matrixContent.style.opacity = '1';
+            }, 200);
+            
+            // 一定時間後にマトリックス効果を消す
+            setTimeout(() => {
+                clearInterval(matrixInterval);
+                matrixTransition.style.opacity = '0';
+                
+                setTimeout(() => {
+                    matrixTransition.style.visibility = 'hidden';
+                }, 200);
+            }, 1000);
+
+            // ヘッダーのスクロール効果
+            const header = document.querySelector('.main-header');
+            const heroSection = document.querySelector('.category-hero');
+            
+            function handleScroll() {
+                const heroHeight = heroSection.offsetHeight;
+                const scrollPosition = window.scrollY;
+                
+                if (scrollPosition > heroHeight) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+            
+            handleScroll();
+            window.addEventListener('scroll', handleScroll);
+
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                mainNav.classList.toggle('active');
+            });
+
+            // スライドショー機能
+            function initSlideshow() {
+                const slides = document.querySelectorAll('.slideshow-slide');
+                let currentSlide = 0;
+
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                        slide.classList.toggle('active', i === index);
+                    });
+                }
+
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    showSlide(currentSlide);
+                }
+
+                // 4秒ごとにスライドを切り替え
+                setInterval(nextSlide, 4000);
+            }
+
+            // スライドショーを初期化
+            initSlideshow();
+            
+            // Generate Particles for global container
+            function createGlobalParticles() {
+                const particlesContainer = document.querySelector('.global-particles-container');
+                const particleCount = 150; // 粒子数
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Random size and position
+                    const size = Math.random() * 4 + 1;
+                    const posX = Math.random() * 100;
+                    const posY = Math.random() * 100;
+                    const delay = Math.random() * 20;
+                    const duration = Math.random() * 10 + 10;
+                    
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${posX}%`;
+                    particle.style.top = `${posY}%`;
+                    particle.style.animationDelay = `${delay}s`;
+                    particle.style.animationDuration = `${duration}s`;
+                    
+                    // アニメカテゴリーのパーティクルはピンクがかった色に
+                    particle.style.backgroundColor = '#ff69b4';
+                    particle.style.boxShadow = '0 0 10px #ff69b4';
+                    
+                    particlesContainer.appendChild(particle);
+                }
+            }
+            
+            // パーティクル生成を実行
+            createGlobalParticles();
+        });
+
+        // ページ遷移時のマトリックス効果
+        document.querySelectorAll('a[data-transition="true"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                // マトリックス効果を再表示
+                const matrixTransition = document.querySelector('.matrix-transition');
+                const matrixCanvas = document.getElementById('matrix-canvas');
+                const ctx = matrixCanvas.getContext('2d');
+                const matrixContent = document.querySelector('.matrix-content');
+                
+                // 遷移先に応じてメッセージを変更
+                if (href.includes('index.html')) {
+                    matrixContent.textContent = 'RETURNING TO MAIN SYSTEM...';
+                } else {
+                    matrixContent.textContent = 'CONNECTING TO NEW DATABASE...';
+                }
+                
+                // マトリックス効果を表示
+                matrixTransition.classList.add('active');
+                
+                // マトリックス効果のアニメーション
+                const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                const nums = '0123456789';
+                const symbols = '!@#$%^&*()_+-=[]{}|;:,./<>?';
+                const alphabet = latin + nums + symbols;
+                
+                const fontSize = 16;
+                const columns = matrixCanvas.width / fontSize;
+                
+                const drops = [];
+                for (let i = 0; i < columns; i++) {
+                    drops[i] = 1;
+                }
+                
+                function drawMatrix() {
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                    ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+                    
+                    // アニメページからの遷移なのでピンク色に
+                    ctx.fillStyle = '#ff69b4';
+                    ctx.font = `${fontSize}px monospace`;
+                    
+                    for (let i = 0; i < drops.length; i++) {
+                        const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                        
+                        if (drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) {
+                            drops[i] = 0;
+                        }
+                        
+                        drops[i]++;
+                    }
+                }
+                
+                let matrixInterval = setInterval(drawMatrix, 50);
+                
+                setTimeout(() => {
+                    matrixContent.style.opacity = '1';
+                }, 150);
+                
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 600);
+            });
+        });
+    </script>
+</body>
+</html>
