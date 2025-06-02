@@ -21,14 +21,6 @@
     <style>
         /* Critical CSS for above-the-fold content */
         body { margin: 0; font-family: 'Rajdhani', sans-serif; overflow-x: hidden; }
-        .loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; justify-content: center; align-items: center; z-index: 9999; }
-        .loading-container { text-align: center; }
-        .loading-logo { font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; }
-        .logo-ai { color: #4a90e2; }
-        .logo-gallery { color: #fff; }
-        .loading-bar { width: 200px; height: 4px; background: #333; margin: 0 auto; overflow: hidden; }
-        .progress-fill { height: 100%; width: 0; background: #4a90e2; transition: width 0.3s ease; }
-        .loading-percentage { margin-top: 1rem; color: #fff; font-size: 0.9rem; }
     </style>
     
     <!-- Defer non-critical CSS -->
@@ -42,29 +34,7 @@
         <div class="matrix-content">SYSTEM LOADING...</div>
     </div>
 
-    <!-- Loading Screen -->
-    <div class="loading-screen">
-        <div class="loading-container">
-            <div class="loading-logo">
-                <span class="logo-ai">AI</span>
-                <span class="logo-gallery">GALLERY</span>
-            </div>
-            <div class="loading-animation">
-                <div class="loading-bar">
-                    <div class="progress-fill"></div>
-                </div>
-                <div class="loading-percentage">0%</div>
-            </div>
-            <div class="loading-text">INITIALIZING AI NEURAL NETWORK...</div>
-            <div class="loading-particles">
-                <div class="particle-dot"></div>
-                <div class="particle-dot"></div>
-                <div class="particle-dot"></div>
-                <div class="particle-dot"></div>
-                <div class="particle-dot"></div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Global Particle Background -->
     <div class="global-particles-container"></div>
@@ -765,6 +735,12 @@
                     // Matrix transition effect
                     const matrixTransition = document.querySelector('.matrix-transition');
                     const matrixContent = document.querySelector('.matrix-content');
+                    const matrixCanvas = document.getElementById('matrix-canvas');
+                    const ctx = matrixCanvas.getContext('2d');
+                    
+                    // Set canvas size
+                    matrixCanvas.width = window.innerWidth;
+                    matrixCanvas.height = window.innerHeight;
                     
                     // Update matrix message
                     matrixContent.textContent = `LOADING ${this.querySelector('h3').textContent.split('（')[0].toUpperCase()} DATA...`;
@@ -823,10 +799,11 @@
                         matrixContent.style.opacity = '1';
                     }, 150);
                     
-                    // Navigate after shorter transition
+                    // Navigate after transition
                     setTimeout(() => {
+                        clearInterval(matrixInterval);
                         window.location.href = href;
-                    }, 600);
+                    }, 1000);
                 });
             });
             
