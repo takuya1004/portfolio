@@ -1,3 +1,47 @@
+// ランダムな画像を選択する関数
+function getRandomImage(category, count) {
+    const randomNum = Math.floor(Math.random() * count) + 1;
+    return `./images/${category}/${category}_${randomNum.toString().padStart(2, '0')}.webp`;
+}
+
+// スライドショーの画像をランダムに設定
+function initRandomSlideshow() {
+    // 各カテゴリの画像枚数（例：各カテゴリに5枚の画像がある場合）
+    const imageCounts = {
+        'anime': 5,
+        'fantasy': 5,
+        'illustration': 5,
+        'landscape': 5,
+        'portrait': 5,
+        'sf': 5
+    };
+
+    // 各スライド要素を取得
+    const slides = document.querySelectorAll('.slide');
+    const categories = Object.keys(imageCounts);
+
+    // 各スライドにランダムな画像を設定
+    slides.forEach((slide, index) => {
+        const category = categories[index % categories.length];
+        const imageUrl = getRandomImage(category, imageCounts[category]);
+        slide.style.backgroundImage = `url('${imageUrl}')`;
+    });
+}
+
+// ページ読み込み時に実行
+document.addEventListener('DOMContentLoaded', function() {
+    // 既存の初期化処理があればここに追加
+    initRandomSlideshow();
+    
+    // その他の初期化処理（必要に応じて）
+    if (document.querySelector('.gallery')) {
+        initGallery();
+    }
+    
+    // パーティクルエフェクトの初期化
+    initParticles();
+});
+
 // 共通パーティクル生成関数
 function createParticles(targetSelector, particleClass, count, sizeMin, sizeMax, delayMax, durationMin, durationMax) {
     const container = document.querySelector(targetSelector);
