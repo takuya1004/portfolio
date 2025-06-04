@@ -1,72 +1,9 @@
 /* Matrix-style page transition animation */
-.matrix-transition-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-  pointer-events: none;
-  background: rgba(0,0,0,0.96);
-  opacity: 0;
-  transition: opacity 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.matrix-transition-overlay.active {
-  opacity: 1;
-  pointer-events: all;
-  transition: opacity 0.2s;
-}
-
-.matrix-rain {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 10000;
-  pointer-events: none;
-}
-
-.matrix-symbol {
-  position: absolute;
-  color: var(--primary-blue);
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.7vw;
-  opacity: 0.85;
-  user-select: none;
-  pointer-events: none;
-  text-shadow: 0 0 14px var(--primary-blue), 0 0 6px #fff;
-  animation: matrix-fall 2.4s linear forwards;
-  writing-mode: vertical-rl;
-  letter-spacing: 0.05em;
-  line-height: 1.1;
-  white-space: pre;
-}
-
-.matrix-symbol .matrix-head {
-  color: #fff;
-  text-shadow: 0 0 20px #fff, 0 0 8px var(--primary-blue);
-  opacity: 1;
-}
-
-
-.matrix-rain {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
   overflow: hidden;
   z-index: 10000;
   pointer-events: none;
   display: flex;
 }
-
 
 @keyframes matrix-fall {
   from {

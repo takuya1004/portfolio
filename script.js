@@ -345,27 +345,7 @@ function initCategorySlideshow() {
 
 document.addEventListener('DOMContentLoaded', function() {
     // TOPページのみ：マトリックスローディング＋フェードイン
-    if (location.pathname.endsWith('/') || location.pathname.endsWith('/index.html')) {
-        // body非表示＆フェード用
-        document.body.style.opacity = '0';
-        document.body.style.transition = 'opacity 1.2s cubic-bezier(0.19,1,0.22,1)';
-        // CSSロード
-        const matrixCss = document.createElement('link');
-        matrixCss.rel = 'stylesheet';
-        matrixCss.href = 'css/matrix-transition.css';
-        document.head.appendChild(matrixCss);
-        // オーバーレイ生成
-        if (!document.querySelector('.matrix-transition-overlay')) {
-            const overlay = document.createElement('div');
-            overlay.className = 'matrix-transition-overlay';
-            overlay.innerHTML = '<div class="matrix-rain"></div>';
-            document.body.appendChild(overlay);
-        }
-        // ローディングアニメ実行
-        runMatrixTransition(() => {
-            document.body.style.opacity = '1';
-        });
-    }
+
     // スクロールイベントの設定
     window.addEventListener('scroll', handleScroll);
     
@@ -450,17 +430,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 5000);
     }
 
-    // マトリックスアニメーションを main-category-card にも適用
-    document.querySelectorAll('.related-category-card, .main-category-card').forEach(card => {
-        card.addEventListener('click', function(e) {
-            // 通常の a タグ遷移を止める
-            e.preventDefault();
-            const href = this.getAttribute('href');
-            runMatrixTransition(() => {
-                window.location.href = href;
-            });
-        });
-    });
+    
+
 
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
