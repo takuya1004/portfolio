@@ -48,7 +48,9 @@ function initSlideshow() {
         return;
     }
     const categories = ['anime', 'fantasy', 'illustration', 'landscape', 'portrait', 'sf', 'top'];
-    const imagePaths = categories.map(category => `images/${category}/${category}_01.webp`);
+    // 画像パスを相対パスで明示的に指定
+    const imagePaths = categories.map(category => `./images/${category}/${category}_01.webp`);
+    console.log('Loading slide images:', imagePaths); // デバッグ用
     let loadedImages = 0;
     const totalImages = imagePaths.length;
     let slides = [];
