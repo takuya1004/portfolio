@@ -262,4 +262,24 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles('#categoryParticles', 'category-particle', 80, 2, 8, 15, 15, 35);
     initSlideshow();
     initGalleryModal();
+
+    // ハンバーガーメニューの開閉機能
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    if (menuToggle && mainNav) {
+      menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menuToggle.classList.toggle('active');
+        mainNav.classList.toggle('active');
+        document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+      });
+      // メニュー外クリックで閉じる
+      document.addEventListener('click', function(e) {
+        if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+          menuToggle.classList.remove('active');
+          mainNav.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
 });
