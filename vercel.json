@@ -2,6 +2,10 @@
   "version": 2,
   "builds": [
     {
+      "src": "**/*.html",
+      "use": "@vercel/static"
+    },
+    {
       "src": "**/*",
       "use": "@vercel/static"
     }
@@ -12,6 +16,10 @@
       "headers": {
         "cache-control": "public, max-age=31536000, immutable"
       }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
     }
   ]
 }
