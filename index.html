@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body style="overflow: auto;">
     <!-- Matrix Transition Effect -->
     <div class="matrix-transition">
         <canvas id="matrix-canvas" class="matrix-canvas"></canvas>
@@ -796,9 +796,20 @@
                         matrixContent.style.opacity = '1';
                     }, 150);
                     
-                    // Navigate after transition
+                    // Hide matrix transition and enable scrolling after animation
                     setTimeout(() => {
                         clearInterval(matrixInterval);
+                        // Hide the matrix transition
+                        const matrixTransition = document.querySelector('.matrix-transition');
+                        matrixTransition.classList.add('hidden');
+                        
+                        // Enable scrolling on body
+                        document.body.style.overflow = 'auto';
+                        
+                        // Remove the matrix transition from the document flow after the transition ends
+                        matrixTransition.addEventListener('transitionend', () => {
+                            matrixTransition.style.display = 'none';
+                        }, { once: true });
                         window.location.href = href;
                     }, 1000);
                 });
@@ -831,5 +842,23 @@
     
     <!-- Main Script -->
     <script src="js/script.js" defer></script>
+    <script>
+        // Hide matrix transition and enable scrolling after page load
+        window.addEventListener('load', function() {
+            const matrixTransition = document.querySelector('.matrix-transition');
+            if (matrixTransition) {
+                // Start hiding the matrix transition after a short delay
+                setTimeout(() => {
+                    matrixTransition.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                    
+                    // Remove the matrix transition from the document flow after the transition ends
+                    matrixTransition.addEventListener('transitionend', () => {
+                        matrixTransition.style.display = 'none';
+                    }, { once: true });
+                }, 1000); // 1 second delay before starting the hide animation
+            }
+        });
+    </script>
 </body>
 </html>
