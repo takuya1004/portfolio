@@ -343,7 +343,29 @@ function initCategorySlideshow() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
+    // TOPページのみ：マトリックスローディング＋フェードイン
+    if (location.pathname.endsWith('/') || location.pathname.endsWith('/index.html')) {
+        // body非表示＆フェード用
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 1.2s cubic-bezier(0.19,1,0.22,1)';
+        // CSSロード
+        const matrixCss = document.createElement('link');
+        matrixCss.rel = 'stylesheet';
+        matrixCss.href = 'css/matrix-transition.css';
+        document.head.appendChild(matrixCss);
+        // オーバーレイ生成
+        if (!document.querySelector('.matrix-transition-overlay')) {
+            const overlay = document.createElement('div');
+            overlay.className = 'matrix-transition-overlay';
+            overlay.innerHTML = '<div class="matrix-rain"></div>';
+            document.body.appendChild(overlay);
+        }
+        // ローディングアニメ実行
+        runMatrixTransition(() => {
+            document.body.style.opacity = '1';
+        });
+    }
     // スクロールイベントの設定
     window.addEventListener('scroll', handleScroll);
     
@@ -353,8 +375,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // カテゴリーページのスライドショーを初期化
     initCategorySlideshow();
     
-    // createParticles('.global-particles-container', 'particle', 150, 1, 5, 20, 10, 20);
-    // createParticles('#categoryParticles', 'category-particle', 80, 2, 8, 15, 15, 35);
+    createParticles('.global-particles-container', 'particle', 150, 1, 5, 20, 10, 20);
+    createParticles('#categoryParticles', 'category-particle', 80, 2, 8, 15, 15, 35);
     // Slideshow for index.html (hero section)
     if (document.querySelector('.hero-slideshow-background')) {
         initSlideshow(); // Targets .hero-slideshow-background
@@ -370,6 +392,76 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Hamburger menu logic
+
+    // Matrix transition for category links
+    const matrixCss = document.createElement('link');
+    matrixCss.rel = 'stylesheet';
+    matrixCss.href = 'css/matrix-transition.css';
+    document.head.appendChild(matrixCss);
+
+    // Create overlay div for matrix transition
+    if (!document.querySelector('.matrix-transition-overlay')) {
+        const overlay = document.createElement('div');
+        overlay.className = 'matrix-transition-overlay';
+        overlay.innerHTML = '<div class="matrix-rain"></div>';
+        document.body.appendChild(overlay);
+    }
+
+    function runMatrixTransition(callback) {
+        const overlay = document.querySelector('.matrix-transition-overlay');
+        const rain = overlay.querySelector('.matrix-rain');
+        rain.innerHTML = '';
+        overlay.classList.add('active');
+        // Matrix rain generation（縦書き日本語文字列/高速/大量/光る先頭）
+        const columns = Math.floor(window.innerWidth / 18); // カラム数増加
+        const rows = Math.floor(window.innerHeight / 18);   // 1カラムあたりの文字数増加
+        const jpChars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let running = true;
+        function spawnRain() {
+            if (!running) return;
+            rain.innerHTML = '';
+            for (let i = 0; i < columns; i++) {
+                let str = '';
+                const len = Math.floor(Math.random() * (rows - 12)) + 12;
+                for (let j = 0; j < len; j++) {
+                    if (Math.random() < 0.8) {
+                        str += jpChars[Math.floor(Math.random() * 71)];
+                    } else {
+                        str += jpChars[Math.floor(Math.random() * jpChars.length)];
+                    }
+                }
+                // 先頭1文字だけ白色で光らせる
+                const symbol = document.createElement('span');
+                symbol.className = 'matrix-symbol';
+                symbol.style.left = `${i * 18}px`;
+                symbol.style.animationDelay = `${Math.random() * 0.7}s`;
+                symbol.innerHTML = `<span class="matrix-head">${str[0]}</span>${str.slice(1)}`;
+                rain.appendChild(symbol);
+            }
+        }
+        // 5秒間、0.18秒ごとにリフレッシュ
+        let interval = setInterval(spawnRain, 180);
+        spawnRain();
+        setTimeout(() => {
+            running = false;
+            clearInterval(interval);
+            overlay.classList.remove('active');
+            if (callback) callback();
+        }, 5000);
+    }
+
+    // マトリックスアニメーションを main-category-card にも適用
+    document.querySelectorAll('.related-category-card, .main-category-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            // 通常の a タグ遷移を止める
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            runMatrixTransition(() => {
+                window.location.href = href;
+            });
+        });
+    });
+
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
     if (menuToggle && mainNav) {
