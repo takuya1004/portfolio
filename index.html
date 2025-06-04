@@ -25,6 +25,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body style="overflow: auto;">
+    <!-- Loading Animation -->
+    <div class="loading-animation">
+        <div class="loading-logo">AI GALLERY</div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
     <!-- Matrix Transition Effect -->
     <div class="matrix-transition">
         <canvas id="matrix-canvas" class="matrix-canvas"></canvas>
@@ -843,21 +851,74 @@
     <!-- Main Script -->
     <script src="js/script.js" defer></script>
     <script>
-        // Hide matrix transition and enable scrolling after page load
-        window.addEventListener('load', function() {
+        // Check if coming from a subpage
+        const isComingFromSubpage = document.referrer && 
+                                  document.referrer.includes(window.location.hostname) && 
+                                  !document.referrer.endsWith('/');
+        
+        // Store the current page state
+        sessionStorage.setItem('showMatrix', isComingFromSubpage ? 'true' : 'false');
+        
+        // Initialize animations based on navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingAnimation = document.querySelector('.loading-animation');
             const matrixTransition = document.querySelector('.matrix-transition');
-            if (matrixTransition) {
-                // Start hiding the matrix transition after a short delay
+            
+            // Show the appropriate animation based on navigation
+            if (sessionStorage.getItem('showMatrix') === 'true') {
+                // Show matrix transition when coming from a subpage
+                loadingAnimation.style.display = 'none';
+                matrixTransition.style.display = 'flex';
+                
+                // Hide matrix transition after animation
                 setTimeout(() => {
                     matrixTransition.classList.add('hidden');
                     document.body.style.overflow = 'auto';
                     
-                    // Remove the matrix transition from the document flow after the transition ends
                     matrixTransition.addEventListener('transitionend', () => {
                         matrixTransition.style.display = 'none';
+                        sessionStorage.removeItem('showMatrix');
                     }, { once: true });
-                }, 1000); // 1 second delay before starting the hide animation
+                }, 1500);
+            } else {
+                // Show loading animation for initial page load
+                matrixTransition.style.display = 'none';
+                
+                // Hide loading animation when everything is loaded
+                const hideLoading = () => {
+                    loadingAnimation.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                    
+                    loadingAnimation.addEventListener('transitionend', () => {
+                        loadingAnimation.style.display = 'none';
+                    }, { once: true });
+                };
+                
+                // Start hiding after a short delay or when all resources are loaded
+                const hideTimer = setTimeout(hideLoading, 1000);
+                window.addEventListener('load', () => {
+                    clearTimeout(hideTimer);
+                    hideLoading();
+                });
             }
+            
+            // Handle page transitions
+            document.querySelectorAll('a[href^="/"], a[href^="./"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Only handle links to the top page
+                    if (href.includes('index.html') || href === '/' || href === './') {
+                        e.preventDefault();
+                        
+                        // Set flag for matrix animation on next page load
+                        sessionStorage.setItem('showMatrix', 'true');
+                        
+                        // Navigate to the top page
+                        window.location.href = href;
+                    }
+                });
+            });
         });
     </script>
 </body>
