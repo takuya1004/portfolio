@@ -24,7 +24,7 @@
     <!-- Non-critical CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" 
           crossorigin="anonymous" 
           referrerpolicy="no-referrer" />
     <style>
@@ -353,6 +353,17 @@
 <div id="global-error" role="alert" aria-live="assertive"></div>
     <!-- Lazysizes for lazy loading images -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
-    <script src="/script.js" defer></script>
+    <script>
+      // スクリプトの読み込みを監視
+      window.addEventListener('error', function(e) {
+        console.error('Script error:', e);
+        const errorDiv = document.getElementById('global-error');
+        if (errorDiv) {
+          errorDiv.textContent = 'スクリプトの読み込み中にエラーが発生しました。ページを更新してください。';
+          errorDiv.style.display = 'block';
+        }
+      }, true);
+    </script>
+    <script src="./script.js" defer onerror="console.error('スクリプトの読み込みに失敗しました')"></script>
 </body>
 </html>
