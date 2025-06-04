@@ -222,59 +222,6 @@ body::before {
 
 /* Loading animation styles have been removed */
 
-/* Matrix Transition Effect */
-.matrix-transition {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 1s ease-in-out;
-}
-
-.matrix-transition.hidden {
-  opacity: 0;
-}
-
-.matrix-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.matrix-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.matrix-content {
-  color: var(--neon-green);
-  font-family: monospace;
-  font-size: 1.5rem;
-  text-align: center;
-  z-index: 10;
-  opacity: 0;
-  transform: scale(0.9);
-  transition: all 0.8s ease;
-}
-
-.matrix-transition.active .matrix-content {
-  opacity: 1;
-  transform: scale(1);
-}
-
 /* Page Transition */
 .page-transition {
   position: fixed;

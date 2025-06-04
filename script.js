@@ -30,6 +30,12 @@ function getRandomImage(category, count) {
 
 // スライドショーの画像をランダムに設定
 function initRandomSlideshow() {
+    const slides = document.querySelectorAll('.slide');
+    // If no elements with class 'slide' are found, exit the function silently.
+    if (!slides.length) {
+        return;
+    }
+
     try {
         // 各カテゴリの画像枚数（各カテゴリの画像数に合わせて調整してください）
         const imageCounts = {
@@ -41,14 +47,9 @@ function initRandomSlideshow() {
             'sf': 5
         };
 
-        // 各スライド要素を取得
-        const slides = document.querySelectorAll('.slide');
-        if (!slides.length) {
-            throw new Error('スライド要素が見つかりません');
-        }
-
         const categories = Object.keys(imageCounts);
         if (!categories.length) {
+            // This error is still possible if imageCounts is empty.
             throw new Error('カテゴリが設定されていません');
         }
 
@@ -64,27 +65,18 @@ function initRandomSlideshow() {
                     img.src = imageUrl;
                 }
             } catch (error) {
+                // Log errors for individual slide initialization but don't stop the loop
                 console.error(`スライド${index + 1}の初期化中にエラーが発生しました:`, error);
             }
         });
     } catch (error) {
-        showError(`スライドショーの初期化に失敗しました: ${error.message}`);
+        // This catch block will now primarily handle errors like 'カテゴリが設定されていません'
+        // or other unexpected errors within the try block.
+        showError(`ランダムスライドショーの処理中にエラー: ${error.message}`);
     }
 }
 
-// ページ読み込み時に実行
-document.addEventListener('DOMContentLoaded', function() {
-    // 既存の初期化処理があればここに追加
-    initRandomSlideshow();
-    
-    // その他の初期化処理（必要に応じて）
-    if (document.querySelector('.gallery')) {
-        initGallery();
-    }
-    
-    // パーティクルエフェクトの初期化
-    initParticles();
-});
+
 
 // 共通パーティクル生成関数
 function createParticles(targetSelector, particleClass, count, sizeMin, sizeMax, delayMax, durationMin, durationMax) {
@@ -257,13 +249,59 @@ function initGalleryModal() {
     });
 }
 
+// Function to initialize slideshows on category pages
+function initCategoryPageSlideshow() {
+    const slideshowContainers = document.querySelectorAll('.category-hero .slideshow-container');
+
+    slideshowContainers.forEach(container => {
+        const slides = container.querySelectorAll('.slideshow-slide');
+        if (slides.length <= 1) {
+            if (slides.length === 1) {
+                 slides[0].classList.add('active'); // Ensure the single slide is active
+            }
+            return; // No slideshow needed for 0 or 1 slide
+        }
+
+        let currentSlide = 0;
+        if (slides.length > 0) {
+            slides[currentSlide].classList.add('active'); // Activate the first slide
+        }
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        if (slides.length > 1) {
+            setInterval(nextSlide, 3000); // Change slide every 3 seconds
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    createParticles('.global-particles-container', 'particle', 150, 1, 5, 20, 10, 20);
-    createParticles('#categoryParticles', 'category-particle', 80, 2, 8, 15, 15, 35);
-    initSlideshow();
+    // createParticles('.global-particles-container', 'particle', 150, 1, 5, 20, 10, 20);
+    // createParticles('#categoryParticles', 'category-particle', 80, 2, 8, 15, 15, 35);
+    // Slideshow for index.html (hero section)
+    if (document.querySelector('.hero-slideshow-background')) {
+        initSlideshow(); // Targets .hero-slideshow-background
+    }
     initGalleryModal();
 
-    // ハンバーガーメニューの開閉機能
+    // Slideshow for category pages (e.g., portrait.html)
+    initCategoryPageSlideshow(); // Targets .category-hero .slideshow-container
+
+    // Random slideshow (targets '.slide' elements, if they exist)
+    if (document.querySelector('.slide')) {
+        initRandomSlideshow();
+    }
+
+    // Hamburger menu logic
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
     if (menuToggle && mainNav) {
