@@ -284,7 +284,75 @@ function initCategoryPageSlideshow() {
     });
 }
 
+// ヘッダーのスクロール検出
+function handleScroll() {
+    const header = document.querySelector('.main-header');
+    if (!header) return;
+    
+    // ヒーローセクションがあるかチェック（トップページ用）
+    const heroSection = document.querySelector('.hero-section');
+    // カテゴリーページのヒーローセクション（下層ページ用）
+    const categoryHero = document.querySelector('.category-hero');
+    
+    let triggerHeight = 0;
+    
+    if (heroSection) {
+        // トップページの場合
+        triggerHeight = heroSection.offsetHeight * 0.8;
+    } else if (categoryHero) {
+        // 下層ページの場合
+        triggerHeight = categoryHero.offsetHeight * 0.5;
+    } else {
+        // どちらもない場合は常にスクロール状態を適用
+        header.classList.add('scrolled');
+        return;
+    }
+    
+    const scrollPosition = window.scrollY;
+    
+    if (scrollPosition > triggerHeight) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+}
+
+// カテゴリーページのスライドショーを初期化
+function initCategorySlideshow() {
+    const slideshow = document.querySelector('.category-hero .slideshow-container');
+    if (!slideshow) return;
+
+    const slides = slideshow.querySelectorAll('.slideshow-slide');
+    if (slides.length === 0) return;
+
+    let currentSlide = 0;
+    
+    // 最初のスライドを表示
+    slides[currentSlide].classList.add('active');
+    
+    // スライドを切り替える関数
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+    
+    // 3秒ごとにスライドを切り替え
+    if (slides.length > 1) {
+        setInterval(nextSlide, 5000);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    // スクロールイベントの設定
+    window.addEventListener('scroll', handleScroll);
+    
+    // 初期ロード時にスクロール位置をチェック
+    handleScroll();
+    
+    // カテゴリーページのスライドショーを初期化
+    initCategorySlideshow();
+    
     // createParticles('.global-particles-container', 'particle', 150, 1, 5, 20, 10, 20);
     // createParticles('#categoryParticles', 'category-particle', 80, 2, 8, 15, 15, 35);
     // Slideshow for index.html (hero section)
