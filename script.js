@@ -1,31 +1,75 @@
+// エラー表示関数
+function showError(message) {
+    console.error(message);
+    const errorDiv = document.getElementById('global-error');
+    if (errorDiv) {
+        errorDiv.textContent = message;
+        errorDiv.style.display = 'block';
+        errorDiv.style.position = 'fixed';
+        errorDiv.style.top = '10px';
+        errorDiv.style.left = '10px';
+        errorDiv.style.background = 'rgba(255, 0, 0, 0.8)';
+        errorDiv.style.color = 'white';
+        errorDiv.style.padding = '10px';
+        errorDiv.style.borderRadius = '5px';
+        errorDiv.style.zIndex = '9999';
+    }
+}
+
 // ランダムな画像を選択する関数
 function getRandomImage(category, count) {
-    const randomNum = Math.floor(Math.random() * count) + 1;
-    return `./images/${category}/${category}_${randomNum.toString().padStart(2, '0')}.webp`;
+    try {
+        const randomNum = Math.floor(Math.random() * count) + 1;
+        const imagePath = `/images/${category}/${category}_${randomNum.toString().padStart(2, '0')}.webp`;
+        return imagePath;
+    } catch (error) {
+        showError(`画像の読み込み中にエラーが発生しました: ${error.message}`);
+        return '';
+    }
 }
 
 // スライドショーの画像をランダムに設定
 function initRandomSlideshow() {
-    // 各カテゴリの画像枚数（例：各カテゴリに5枚の画像がある場合）
-    const imageCounts = {
-        'anime': 5,
-        'fantasy': 5,
-        'illustration': 5,
-        'landscape': 5,
-        'portrait': 5,
-        'sf': 5
-    };
+    try {
+        // 各カテゴリの画像枚数（各カテゴリの画像数に合わせて調整してください）
+        const imageCounts = {
+            'anime': 5,
+            'fantasy': 5,
+            'illustration': 5,
+            'landscape': 5,
+            'portrait': 5,
+            'sf': 5
+        };
 
-    // 各スライド要素を取得
-    const slides = document.querySelectorAll('.slide');
-    const categories = Object.keys(imageCounts);
+        // 各スライド要素を取得
+        const slides = document.querySelectorAll('.slide');
+        if (!slides.length) {
+            throw new Error('スライド要素が見つかりません');
+        }
 
-    // 各スライドにランダムな画像を設定
-    slides.forEach((slide, index) => {
-        const category = categories[index % categories.length];
-        const imageUrl = getRandomImage(category, imageCounts[category]);
-        slide.style.backgroundImage = `url('${imageUrl}')`;
-    });
+        const categories = Object.keys(imageCounts);
+        if (!categories.length) {
+            throw new Error('カテゴリが設定されていません');
+        }
+
+        // 各スライドにランダムな画像を設定
+        slides.forEach((slide, index) => {
+            try {
+                const category = categories[index % categories.length];
+                const imageUrl = getRandomImage(category, imageCounts[category]);
+                if (imageUrl) {
+                    slide.style.backgroundImage = `url('${imageUrl}')`;
+                    // 画像の読み込みを事前に行う
+                    const img = new Image();
+                    img.src = imageUrl;
+                }
+            } catch (error) {
+                console.error(`スライド${index + 1}の初期化中にエラーが発生しました:`, error);
+            }
+        });
+    } catch (error) {
+        showError(`スライドショーの初期化に失敗しました: ${error.message}`);
+    }
 }
 
 // ページ読み込み時に実行
