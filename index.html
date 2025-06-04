@@ -9,10 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Preload critical images -->
-    <link rel="preload" href="images/top/top_01.webp" as="image">
-    <link rel="preload" href="images/top/top_02.webp" as="image">
-    <link rel="preload" href="images/top/top_03.webp" as="image">
-    <link rel="preload" href="images/top/top_09.webp" as="image">
+    <link rel="preload" href="./images/top/top_01.webp" as="image" type="image/webp">
+    <link rel="preload" href="./images/top/top_02.webp" as="image" type="image/webp">
+    <link rel="preload" href="./images/top/top_03.webp" as="image" type="image/webp">
+    <link rel="preload" href="./images/top/top_09.webp" as="image" type="image/webp">
+    <link rel="preload" href="script.js" as="script">
     
     <!-- Inline critical CSS -->
     <style>
@@ -22,7 +23,10 @@
     
     <!-- Non-critical CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papm6n2+zvQnQj0Uo5uJvKQ1C0YwQYv2g5fK6wD4QpYwP4nQ8jQ8QwQ8QwQ8QwQ8QwQ8QwQ8QwQ8QwQ8Qw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer" />
     <style>
         #global-error { display:none; }
     </style>
@@ -346,6 +350,6 @@
 <div id="global-error" role="alert" aria-live="assertive"></div>
     <!-- Lazysizes for lazy loading images -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
-    <script src="script.js" async></script>
+    <script src="./script.js" defer></script>
 </body>
 </html>
